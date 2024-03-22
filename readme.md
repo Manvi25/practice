@@ -5,7 +5,7 @@ Each technology has its own folder where practice exercises are organized and ex
 
 **Contents:**
 
-**PySpark Practice:**
+**PySpark :**
 
 - Explore the `pyspark` folder to dive into PySpark practice sessions.
 - Practice exercises cover fundamental concepts, such as RDD creation, transformations, actions, DataFrame operations, and more.
