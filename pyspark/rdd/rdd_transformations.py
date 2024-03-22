@@ -29,6 +29,30 @@ print("Mapped Partitions RDD:", mapped_partitions_rdd.collect())
 mapped_partitions_with_index_rdd = rdd.mapPartitionsWithIndex(lambda idx, partition: [(idx, x) for x in partition])
 print("Mapped Partitions With Index RDD:", mapped_partitions_with_index_rdd.collect())
 
+# glom transformation
+glommed_rdd = rdd.glom()
+print("Glommed RDD:", glommed_rdd.collect())
+
+# Union transformation
+rdd1 = sc.parallelize([1, 2, 3])
+rdd2 = sc.parallelize([4, 5, 6])
+union_rdd = rdd1.union(rdd2)
+print("Union RDD:", union_rdd.collect())
+
+# Intersection transformation
+intersection_rdd = rdd.intersection(sc.parallelize([3, 4, 5]))
+print("Intersection RDD:", intersection_rdd.collect())
+
+# Distinct transformation (already provided in the initial code)
+print("Distinct RDD:", distinct_rdd.collect())
+
+# groupByKey transformation
+pair_rdd = sc.parallelize([(1, 'a'), (2, 'b'), (1, 'c'), (2, 'd'), (3, 'e')])
+grouped_rdd = pair_rdd.groupByKey()
+print("Grouped RDD:", [(key, list(values)) for key, values in grouped_rdd.collect()])
+
+
+
 
 
 
